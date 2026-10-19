@@ -10,3 +10,15 @@ function showScreen(name) {
 document.querySelectorAll('[data-screen-target]').forEach((control) => {
   control.addEventListener('click', () => showScreen(control.dataset.screenTarget));
 });
+
+const toast = document.querySelector('.toast');
+let toastTimer;
+
+document.querySelectorAll('[data-profile-action]').forEach((control) => {
+  control.addEventListener('click', () => {
+    clearTimeout(toastTimer);
+    toast.textContent = `${control.dataset.profileAction}功能将在下一版本开放`;
+    toast.classList.add('visible');
+    toastTimer = setTimeout(() => toast.classList.remove('visible'), 2200);
+  });
+});
