@@ -107,19 +107,66 @@
 /* Homepage visual corrections */
 .bottom-nav{height:76px}
 .nav-item{justify-content:flex-end;padding:0 0 10px;gap:3px}
-.nav-add{position:relative;padding-bottom:7px}
-.nav-add span{position:absolute;top:4px}
-.nav-add small{margin-top:52px}
+.nav-add{justify-content:center;padding:0;gap:0}
 .add-flower{width:54px;height:54px;right:58px;top:8px;opacity:.72}
 .mini-clothing{height:auto;aspect-ratio:1 / 1}
 .recent-list article{min-width:0}
 .recent-list article:nth-child(2) img{margin-top:0}
-/* Typography hierarchy: 400 / 350 / 300 */
+/* Typography hierarchy: 350 / 300 */
 body{font-weight:350}
-.home-header h2{font-weight:400}
+.home-header h2{font-weight:350}
 .app-header:not(.home-header):not(.centered) h2{font-weight:300}
+
+/* Keep wardrobe controls visible while the clothing grid scrolls. */
+#screen-wardrobe{padding-top:0}
+.wardrobe-sticky-header{position:sticky;top:0;z-index:2;margin:0 -20px 18px;padding:20px 20px 0;background:var(--cream)}
+.wardrobe-sticky-header .filter-row{margin-bottom:0;padding-bottom:18px}
+.wardrobe-heading{min-width:0;white-space:nowrap}
+.wardrobe-add{background:var(--soft-pink)}
+@media(max-width:390px){
+  .wardrobe-sticky-header .app-header{gap:4px}
+  .wardrobe-sticky-header .header-actions{gap:4px}
+  .wardrobe-sticky-header .icon-button,.wardrobe-sticky-header .back-button{flex:0 0 40px}
+  .wardrobe-sticky-header .app-header h2{font-size:clamp(24px,6.6vw,26px)}
+}
 .centered h2{font-weight:350}
 .big-number,.unit,.category b{font-weight:350}
 .card-heading h3,.section-title h3,.recognition h3,.extra-info h3,.reason-card h3,.feedback-card h3{font-weight:350}
 .detail-name,.add-card strong,.wardrobe-item strong{font-weight:350}
 .text-button,.secondary-button,.primary-button,.soft-button,.tag,.small-action,.filter-row button,.nav-item small{font-weight:350}
+
+/* Favorite is a separate control so it never activates the clothing card. */
+.wardrobe-card{position:relative;min-width:0}
+.wardrobe-card .wardrobe-item{display:block;width:100%;height:100%}
+.wardrobe-card .wardrobe-item strong{display:block;padding-right:35px}
+.wardrobe-heart{right:4px;bottom:4px;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;background:transparent;color:#e98cbc;cursor:pointer}
+.wardrobe-heart svg{display:none}
+.wardrobe-heart::after{content:"";width:30px;height:28px;background:url("assets/decorations/heart-outline-sticker.svg") center / contain no-repeat}
+.wardrobe-heart[aria-pressed="true"]::after{background-image:url("assets/decorations/heart-sticker.svg")}
+.wardrobe-heart:focus-visible{outline:2px solid #e98cbc;outline-offset:-4px;border-radius:50%}
+
+/* Fit the desktop preview to the available window without changing app typography. */
+@media(min-width:841px){
+  .demo-shell{grid-template-columns:minmax(0,430px) 420px;gap:clamp(24px,5vw,72px);padding:24px 28px}
+  .phone{height:min(860px,calc(100vh - 48px));height:min(860px,calc(100dvh - 48px))}
+}
+
+/* Keep the original freeform outfit collage while reducing vertical space. */
+#screen-stylist{padding-top:16px;padding-bottom:110px;overflow:hidden}
+#screen-stylist:not(.hidden){display:flex;flex-direction:column}
+#screen-stylist .stylist-body{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none}
+#screen-stylist .stylist-body::-webkit-scrollbar{display:none}
+#screen-stylist .app-header{margin-bottom:12px}
+#screen-stylist .stylist-card{padding:16px;margin-top:0}
+#screen-stylist .outfit-collage{height:245px;margin:8px 0 0}
+#screen-stylist .collage-cardigan{width:134px;height:164px;top:12px;left:20px}
+#screen-stylist .collage-jeans{width:114px;height:175px;top:15px;right:36px}
+#screen-stylist .collage-shoes{width:133px;height:80px;left:15px;bottom:12px}
+#screen-stylist .collage-bag{width:107px;height:93px;right:14px;bottom:10px}
+#screen-stylist .reason-card{margin-top:12px;padding:16px}
+#screen-stylist .reason-card p{margin-top:4px}
+#screen-stylist .reason-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:0;border:0;background:transparent;color:var(--body);font:350 14px/1.45 var(--font);cursor:pointer}
+#screen-stylist .reason-toggle::after{content:"";width:10px;height:10px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4h8L6 9Z' fill='none' stroke='%235f5b55' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+#screen-stylist .reason-toggle[aria-expanded="true"]::after{transform:rotate(180deg)}
+#screen-stylist .reason-toggle:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+#screen-stylist .dual-actions{flex-shrink:0;margin-top:12px;background:transparent}
