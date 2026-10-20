@@ -4,7 +4,10 @@ const navItems = document.querySelectorAll('.nav-item');
 function showScreen(name) {
   screens.forEach((screen) => screen.classList.toggle('hidden', screen.id !== `screen-${name}`));
   navItems.forEach((item) => item.classList.toggle('active', item.dataset.screenTarget === name));
-  document.querySelector('.phone').scrollTop = 0;
+  const phone = document.querySelector('.phone');
+  const screen = document.querySelector(`#screen-${name}`);
+  if (phone) phone.scrollTop = 0;
+  if (screen) screen.scrollTop = 0;
 }
 
 document.querySelectorAll('[data-screen-target]').forEach((control) => {
@@ -13,11 +16,27 @@ document.querySelectorAll('[data-screen-target]').forEach((control) => {
 
 const reasonToggle = document.querySelector('.reason-toggle');
 const reasonDetail = document.querySelector('#stylist-reason-detail');
-reasonToggle.addEventListener('click', () => {
-  const expanded = reasonToggle.getAttribute('aria-expanded') === 'true';
-  reasonDetail.hidden = expanded;
-  reasonToggle.setAttribute('aria-expanded', String(!expanded));
-  reasonToggle.textContent = expanded ? '查看详细理由' : '收起';
+if (reasonToggle && reasonDetail) {
+  reasonToggle.addEventListener('click', () => {
+    const expanded = reasonToggle.getAttribute('aria-expanded') === 'true';
+    reasonDetail.hidden = expanded;
+    reasonToggle.setAttribute('aria-expanded', String(!expanded));
+    reasonToggle.childNodes[0].textContent = expanded ? '查看详细理由' : '收起';
+  });
+}
+
+const toast = document.querySelector('.toast');
+let toastTimer;
+function showToast(message) {
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add('is-visible');
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 1800);
+}
+
+document.querySelectorAll('[data-profile-action]').forEach((control) => {
+  control.addEventListener('click', () => showToast(`${control.dataset.profileAction}功能将在后续版本开放`));
 });
 
 const favoriteKey = 'miuda-wardrobe-favorites-v1';
