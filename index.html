@@ -82,17 +82,18 @@
         </div>
 
         <div class="screen hidden" id="screen-wardrobe">
-          <header class="app-header"><button class="back-button" data-screen-target="home" aria-label="返回"><svg><use href="#i-back" /></svg></button><div><h2>我的衣橱</h2><p>86 件衣物</p></div><div class="header-actions"><button class="icon-button" aria-label="搜索"><svg><use href="#i-search" /></svg></button><button class="icon-button" aria-label="切换布局"><svg><use href="#i-grid" /></svg></button></div></header>
-          <nav class="filter-row" aria-label="衣物筛选"><button class="selected">全部</button><button>上衣</button><button>下装</button><button>外套</button><button>鞋履</button></nav>
-          <div class="wardrobe-grid">
-            <button class="wardrobe-item" data-screen-target="detail"><img class="wardrobe-product" src="assets/products/ivory-cardigan.png" alt="奶油白针织开衫" /><small>奶油白</small><strong>针织开衫</strong><img class="wardrobe-heart" src="assets/decorations/heart-sticker.svg" alt="已收藏" /></button>
-            <button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/light-blue-jeans.png" alt="浅蓝牛仔裤" /><small>浅蓝色</small><strong>牛仔裤</strong><img class="wardrobe-heart" src="assets/decorations/heart-sticker.svg" alt="已收藏" /></button>
-            <button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/camel-trench.png" alt="卡其风衣" /><small>卡其色</small><strong>风衣外套</strong><img class="wardrobe-heart" src="assets/decorations/heart-sticker.svg" alt="已收藏" /></button>
-            <button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/ivory-sneakers.png" alt="米白运动鞋" /><small>米白色</small><strong>运动鞋</strong><img class="wardrobe-heart" src="assets/decorations/heart-sticker.svg" alt="已收藏" /></button>
-            <button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/brown-tote.png" alt="深棕托特包" /><small>深棕色</small><strong>托特包</strong><img class="wardrobe-heart" src="assets/decorations/heart-sticker.svg" alt="已收藏" /></button>
-            <button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/camel-utility-jacket.png" alt="浅卡其短外套" /><small>浅卡其色</small><strong>短外套</strong><img class="wardrobe-heart" src="assets/decorations/heart-sticker.svg" alt="已收藏" /></button>
+          <div class="wardrobe-sticky-header">
+            <header class="app-header"><button class="back-button" data-screen-target="home" aria-label="返回"><svg><use href="#i-back" /></svg></button><div class="wardrobe-heading"><h2>我的衣橱</h2><p>86 件衣物</p></div><div class="header-actions"><button class="icon-button" aria-label="搜索"><svg><use href="#i-search" /></svg></button><button class="icon-button" aria-label="切换布局"><svg><use href="#i-grid" /></svg></button><button class="icon-button wardrobe-add" data-screen-target="add" aria-label="添加衣物"><svg><use href="#i-plus" /></svg></button></div></header>
+            <nav class="filter-row" aria-label="衣物筛选"><button class="selected">全部</button><button>上衣</button><button>下装</button><button>外套</button><button>鞋履</button></nav>
           </div>
-          <button class="floating-add" data-screen-target="add" aria-label="添加衣物"><svg><use href="#i-plus" /></svg></button>
+          <div class="wardrobe-grid">
+            <article class="wardrobe-card"><button class="wardrobe-item" data-screen-target="detail"><img class="wardrobe-product" src="assets/products/ivory-cardigan.png" alt="奶油白针织开衫" /><small>奶油白</small><strong>针织开衫</strong></button><button class="wardrobe-heart" data-favorite="ivory-cardigan" data-item-name="针织开衫" aria-label="收藏针织开衫" aria-pressed="false"><svg aria-hidden="true"><use href="#i-heart" /></svg></button></article>
+            <article class="wardrobe-card"><button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/light-blue-jeans.png" alt="浅蓝牛仔裤" /><small>浅蓝色</small><strong>牛仔裤</strong></button><button class="wardrobe-heart" data-favorite="light-blue-jeans" data-item-name="牛仔裤" aria-label="收藏牛仔裤" aria-pressed="false"><svg aria-hidden="true"><use href="#i-heart" /></svg></button></article>
+            <article class="wardrobe-card"><button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/camel-trench.png" alt="卡其风衣" /><small>卡其色</small><strong>风衣外套</strong></button><button class="wardrobe-heart" data-favorite="camel-trench" data-item-name="风衣外套" aria-label="收藏风衣外套" aria-pressed="false"><svg aria-hidden="true"><use href="#i-heart" /></svg></button></article>
+            <article class="wardrobe-card"><button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/ivory-sneakers.png" alt="米白运动鞋" /><small>米白色</small><strong>运动鞋</strong></button><button class="wardrobe-heart" data-favorite="ivory-sneakers" data-item-name="运动鞋" aria-label="收藏运动鞋" aria-pressed="false"><svg aria-hidden="true"><use href="#i-heart" /></svg></button></article>
+            <article class="wardrobe-card"><button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/brown-tote.png" alt="深棕托特包" /><small>深棕色</small><strong>托特包</strong></button><button class="wardrobe-heart" data-favorite="brown-tote" data-item-name="托特包" aria-label="收藏托特包" aria-pressed="false"><svg aria-hidden="true"><use href="#i-heart" /></svg></button></article>
+            <article class="wardrobe-card"><button class="wardrobe-item"><img class="wardrobe-product" src="assets/products/camel-utility-jacket.png" alt="浅卡其短外套" /><small>浅卡其色</small><strong>短外套</strong></button><button class="wardrobe-heart" data-favorite="camel-utility-jacket" data-item-name="短外套" aria-label="收藏短外套" aria-pressed="false"><svg aria-hidden="true"><use href="#i-heart" /></svg></button></article>
+          </div>
         </div>
 
         <div class="screen hidden" id="screen-add">
@@ -111,9 +112,11 @@
         </div>
 
         <div class="screen hidden" id="screen-stylist">
+          <div class="stylist-body">
           <header class="app-header centered"><button class="back-button" data-screen-target="home" aria-label="返回"><svg><use href="#i-back" /></svg></button><div><h2>AI 帮搭</h2><p class="weather"><svg><use href="#i-cloud" /></svg>16° · 阴天 · 通勤</p></div><span class="header-spacer"></span></header>
           <section class="stylist-card card yellow-card"><div class="card-heading"><div><h3>今天的通勤穿搭</h3><p>温柔又有质感，轻松应对工作日</p></div><button class="secondary-button icon-text">换一套<svg><use href="#i-refresh" /></svg></button></div><div class="outfit-collage"><img class="collage-cardigan" src="assets/products/ivory-cardigan.png" alt="米白针织开衫" /><img class="collage-jeans" src="assets/products/light-blue-jeans.png" alt="浅蓝牛仔裤" /><img class="collage-shoes" src="assets/products/ivory-sneakers.png" alt="米白运动鞋" /><img class="collage-bag" src="assets/products/brown-tote.png" alt="棕色托特包" /></div><img class="deco stylist-heart" src="assets/decorations/heart-sticker.svg" alt="" /><img class="deco stylist-flower" src="assets/decorations/flower-sticker.svg" alt="" /></section>
-          <section class="reason-card card blue-card"><h3>为什么这样搭？</h3><p>温暖的米色针织开衫与清新的蓝色牛仔裤形成柔和对比，整体干净有层次，舒适又适合通勤日常。</p></section>
+          <section class="reason-card card blue-card"><h3>为什么这样搭？</h3><p>米色与浅蓝柔和相配，舒适又适合通勤。</p><p id="stylist-reason-detail" hidden>温暖的米色针织开衫与清新的蓝色牛仔裤形成柔和对比，整体干净有层次，舒适又适合通勤日常。</p><button class="reason-toggle" type="button" aria-expanded="false" aria-controls="stylist-reason-detail">查看详细理由</button></section>
+          </div>
           <div class="dual-actions"><button class="primary-button icon-text" data-screen-target="tryon">去试衣<svg><use href="#i-chevron-right" /></svg></button><button class="soft-button icon-text"><svg><use href="#i-heart" /></svg>收藏搭配</button></div>
         </div>
 
@@ -162,7 +165,7 @@
         <nav class="bottom-nav" aria-label="主导航">
           <button class="nav-item active" data-screen-target="home"><svg><use href="#i-home" /></svg><small>首页</small></button>
           <button class="nav-item" data-screen-target="stylist"><svg><use href="#i-hanger" /></svg><small>搭配</small></button>
-          <button class="nav-item nav-add" data-screen-target="add"><span><svg><use href="#i-plus" /></svg></span><small>添加</small></button>
+          <button class="nav-item nav-add" data-screen-target="add"><span><svg><use href="#i-plus" /></svg></span></button>
           <button class="nav-item" data-screen-target="wardrobe"><svg><use href="#i-shirt" /></svg><small>衣橱</small></button>
           <button class="nav-item" data-screen-target="profile"><svg><use href="#i-user" /></svg><small>我的</small></button>
         </nav>

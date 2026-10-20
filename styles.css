@@ -107,21 +107,119 @@
 /* Homepage visual corrections */
 .bottom-nav{height:76px}
 .nav-item{justify-content:flex-end;padding:0 0 10px;gap:3px}
-.nav-add{position:relative;padding-bottom:7px}
-.nav-add span{position:absolute;top:4px}
-.nav-add small{margin-top:52px}
+.nav-add{justify-content:center;padding:0;gap:0}
 .add-flower{width:54px;height:54px;right:58px;top:8px;opacity:.72}
 .mini-clothing{height:auto;aspect-ratio:1 / 1}
 .recent-list article{min-width:0}
 .recent-list article:nth-child(2) img{margin-top:0}
-/* Typography hierarchy: 400 / 350 / 300 */
+/* Typography hierarchy: 350 / 300 */
 body{font-weight:350}
-.home-header h2{font-weight:400}
+.home-header h2{font-weight:350}
 .app-header:not(.home-header):not(.centered) h2{font-weight:300}
+
+/* Keep wardrobe controls visible while the clothing grid scrolls. */
+#screen-wardrobe{padding-top:0}
+.wardrobe-sticky-header{position:sticky;top:0;z-index:2;margin:0 -20px 18px;padding:20px 20px 0;background:var(--cream)}
+.wardrobe-sticky-header .filter-row{margin-bottom:0;padding-bottom:18px}
+.wardrobe-heading{min-width:0;white-space:nowrap}
+.wardrobe-add{background:var(--soft-pink)}
+@media(max-width:390px){
+  .wardrobe-sticky-header .app-header{gap:4px}
+  .wardrobe-sticky-header .header-actions{gap:4px}
+  .wardrobe-sticky-header .icon-button,.wardrobe-sticky-header .back-button{flex:0 0 40px}
+  .wardrobe-sticky-header .app-header h2{font-size:clamp(24px,6.6vw,26px)}
+}
 .centered h2{font-weight:350}
 .big-number,.unit,.category b{font-weight:350}
 .card-heading h3,.section-title h3,.recognition h3,.extra-info h3,.reason-card h3,.feedback-card h3{font-weight:350}
 .detail-name,.add-card strong,.wardrobe-item strong{font-weight:350}
 .text-button,.secondary-button,.primary-button,.soft-button,.tag,.small-action,.filter-row button,.nav-item small{font-weight:350}
-/* Personal profile */
-.profile-header{align-items:flex-start}.profile-header>div>p{margin:0 0 7px;color:var(--muted);font-size:14px}.profile-header .icon-button{flex:0 0 auto}.profile-card{display:flex;align-items:center;gap:15px;min-height:132px;padding:18px}.profile-avatar{width:76px;height:76px;flex:0 0 76px;display:grid;place-items:center;border-radius:28px;background:linear-gradient(145deg,#f5c0da,#d9c9ee);color:#fffdf8;font-family:Georgia,serif;font-size:38px;font-style:italic;box-shadow:inset 0 0 0 4px rgba(255,253,248,.55)}.profile-copy{position:relative;z-index:3;min-width:0}.profile-copy h3{margin:0;font-size:24px;font-weight:350}.profile-copy p{margin:5px 0 10px;color:var(--body);font-size:13px}.profile-edit{display:inline-flex;align-items:center;gap:1px;border:0;padding:0;background:transparent;color:var(--body);font:350 13px var(--font);cursor:pointer}.profile-edit svg,.menu-arrow{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.profile-heart{width:40px;height:38px;right:19px;top:16px;transform:rotate(10deg);opacity:.85}.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}.profile-stats button{height:79px;border:0;border-radius:20px;background:var(--paper);box-shadow:0 5px 16px rgba(91,75,49,.05);color:var(--ink);font-family:var(--font);cursor:pointer}.profile-stats b,.profile-stats small{display:block}.profile-stats b{font-size:25px;line-height:1.1;font-weight:350}.profile-stats small{margin-top:6px;color:var(--muted);font-size:12px}.profile-highlight{min-height:163px;display:flex;justify-content:space-between;padding:21px 20px}.highlight-label{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(255,253,248,.62);color:var(--body);font-size:11px}.profile-highlight h3{margin:11px 0 5px;font-size:25px;line-height:1.25;font-weight:350}.profile-highlight p{margin:0;max-width:205px;color:var(--body);font-size:12px;line-height:1.55}.highlight-orbit{position:relative;width:105px;flex:0 0 105px}.highlight-orbit img:first-child{position:absolute;right:-5px;bottom:-7px;width:115px;height:138px;object-fit:contain;transform:rotate(9deg);filter:drop-shadow(0 7px 5px rgba(91,75,49,.12))}.highlight-orbit img:last-child{position:absolute;left:3px;top:8px;width:39px;height:39px;transform:rotate(-15deg)}.profile-menu{margin-top:21px}.profile-section-title{margin:0 0 9px 3px;color:var(--muted);font-size:13px}.profile-menu-group{margin-bottom:20px;border:1px solid var(--border);border-radius:22px;overflow:hidden;background:var(--paper);box-shadow:0 5px 16px rgba(91,75,49,.04)}.profile-menu-item{width:100%;min-height:74px;display:grid;grid-template-columns:46px 1fr 20px;align-items:center;gap:10px;border:0;border-bottom:1px solid var(--border);padding:12px 15px;text-align:left;background:transparent;color:var(--ink);font-family:var(--font);cursor:pointer}.profile-menu-item:last-child{border-bottom:0}.menu-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:15px}.menu-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.profile-menu-item b,.profile-menu-item small{display:block}.profile-menu-item b{font-size:16px;font-weight:350}.profile-menu-item small{margin-top:4px;color:var(--muted);font-size:12px}.menu-arrow{justify-self:end;color:var(--muted)}.toast{position:absolute;z-index:10;bottom:103px;left:50%;margin:0;transform:translate(-50%,12px);width:max-content;max-width:calc(100% - 56px);padding:10px 14px;border-radius:999px;background:rgba(41,40,36,.87);color:#fffdf8;font-size:13px;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}.toast.visible{opacity:1;transform:translate(-50%,0)}
+
+/* Favorite is a separate control so it never activates the clothing card. */
+.wardrobe-card{position:relative;min-width:0}
+.wardrobe-card .wardrobe-item{display:block;width:100%;height:100%}
+.wardrobe-card .wardrobe-item strong{display:block;padding-right:35px}
+.wardrobe-heart{right:4px;bottom:4px;width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;background:transparent;color:#e98cbc;cursor:pointer}
+.wardrobe-heart svg{display:none}
+.wardrobe-heart::after{content:"";width:30px;height:28px;background:url("assets/decorations/heart-outline-sticker.svg") center / contain no-repeat}
+.wardrobe-heart[aria-pressed="true"]::after{background-image:url("assets/decorations/heart-sticker.svg")}
+.wardrobe-heart:focus-visible{outline:2px solid #e98cbc;outline-offset:-4px;border-radius:50%}
+
+/* Fit the desktop preview to the available window without changing app typography. */
+@media(min-width:841px){
+  .demo-shell{grid-template-columns:minmax(0,430px) 420px;gap:clamp(24px,5vw,72px);padding:24px 28px}
+  .phone{height:min(860px,calc(100vh - 48px));height:min(860px,calc(100dvh - 48px))}
+}
+
+/* Keep the original freeform outfit collage while reducing vertical space. */
+#screen-stylist{padding-top:16px;padding-bottom:110px;overflow:hidden}
+#screen-stylist:not(.hidden){display:flex;flex-direction:column}
+#screen-stylist .stylist-body{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none}
+#screen-stylist .stylist-body::-webkit-scrollbar{display:none}
+#screen-stylist .app-header{margin-bottom:12px}
+#screen-stylist .stylist-card{padding:16px;margin-top:0}
+#screen-stylist .outfit-collage{height:245px;margin:8px 0 0}
+#screen-stylist .collage-cardigan{width:134px;height:164px;top:12px;left:20px}
+#screen-stylist .collage-jeans{width:114px;height:175px;top:15px;right:36px}
+#screen-stylist .collage-shoes{width:133px;height:80px;left:15px;bottom:12px}
+#screen-stylist .collage-bag{width:107px;height:93px;right:14px;bottom:10px}
+#screen-stylist .reason-card{margin-top:12px;padding:16px}
+#screen-stylist .reason-card p{margin-top:4px}
+#screen-stylist .reason-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:0;border:0;background:transparent;color:var(--body);font:350 14px/1.45 var(--font);cursor:pointer}
+#screen-stylist .reason-toggle::after{content:"";width:10px;height:10px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4h8L6 9Z' fill='none' stroke='%235f5b55' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+#screen-stylist .reason-toggle[aria-expanded="true"]::after{transform:rotate(180deg)}
+#screen-stylist .reason-toggle:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+#screen-stylist .dual-actions{flex-shrink:0;margin-top:12px;background:transparent}
+
+/* Profile screen — keep the merged “我的” page aligned with the app system. */
+#screen-profile{padding-bottom:112px}
+#screen-profile .profile-header{align-items:flex-start;margin-bottom:18px}
+#screen-profile .profile-header p{margin:0 0 4px;color:var(--muted);font-size:13px}
+#screen-profile .profile-header h2{font-size:34px;line-height:1.1;font-weight:350}
+.profile-card{min-height:132px;display:flex;align-items:center;gap:14px;padding:18px 20px}
+.profile-avatar{width:64px;height:64px;display:grid;place-items:center;flex:0 0 64px;border-radius:50%;background:var(--soft-pink);color:var(--ink);font-size:28px;font-weight:350;box-shadow:inset 0 0 0 6px rgba(255,253,248,.65)}
+.profile-copy{min-width:0;position:relative;z-index:1}
+.profile-copy h3{margin:0;font-size:22px;line-height:1.2;font-weight:350}
+.profile-copy p{margin:5px 0 9px;color:var(--body);font-size:13px;line-height:1.4}
+.profile-edit{display:inline-flex;align-items:center;gap:3px;border:0;padding:0;background:transparent;color:var(--body);font:350 13px var(--font);cursor:pointer}
+.profile-edit svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.profile-heart{width:46px;height:44px;right:18px;bottom:16px;transform:rotate(10deg);opacity:.78}
+.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);margin:14px 4px 18px;border:1px solid var(--border);border-radius:18px;background:rgba(255,253,248,.72);overflow:hidden}
+.profile-stats button{min-height:70px;border:0;border-right:1px solid var(--border);background:transparent;color:var(--ink);font-family:var(--font);cursor:pointer}
+.profile-stats button:last-child{border-right:0}
+.profile-stats b,.profile-stats small{display:block}
+.profile-stats b{font-size:24px;line-height:1.1;font-weight:350}
+.profile-stats small{margin-top:5px;color:var(--muted);font-size:12px}
+.profile-highlight{min-height:145px;display:flex;justify-content:space-between;align-items:center;padding:18px 20px}
+.highlight-label{display:inline-block;color:var(--body);font-size:12px;letter-spacing:.08em}
+.profile-highlight h3{margin:8px 0 7px;font-size:24px;line-height:1.2;font-weight:350}
+.profile-highlight p{max-width:185px;margin:0;color:var(--body);font-size:13px;line-height:1.45}
+.highlight-orbit{position:relative;width:102px;height:102px;flex:0 0 102px;border-radius:50%;background:rgba(255,253,248,.6);display:grid;place-items:center}
+.highlight-orbit img:first-child{width:82px;height:82px;object-fit:contain;filter:drop-shadow(0 6px 5px rgba(91,75,49,.13));transform:rotate(5deg)}
+.highlight-orbit img:last-child{position:absolute;right:-4px;top:2px;width:35px;height:35px;transform:rotate(12deg)}
+.profile-menu{margin-top:22px}
+.profile-section-title{margin:0 4px 9px;color:var(--muted);font-size:12px;letter-spacing:.08em}
+.profile-menu-group{border:1px solid var(--border);border-radius:18px;background:rgba(255,253,248,.72);overflow:hidden}
+.profile-menu-item{width:100%;min-height:66px;display:flex;align-items:center;gap:11px;padding:10px 14px;border:0;border-bottom:1px solid var(--border);background:transparent;text-align:left;color:var(--ink);font-family:var(--font);cursor:pointer}
+.profile-menu-item:last-child{border-bottom:0}
+.profile-menu-item>span:nth-child(2){min-width:0;display:flex;flex:1;flex-direction:column}
+.profile-menu-item b{font-size:15px;line-height:1.3;font-weight:350}
+.profile-menu-item small{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.3}
+.menu-icon{width:36px;height:36px;display:grid;place-items:center;flex:0 0 36px;border-radius:12px}
+.menu-icon.pink{background:var(--soft-pink)}
+.menu-icon.blue{background:var(--soft-blue)}
+.menu-icon.green{background:var(--soft-green)}
+.menu-icon.lilac{background:#e7e8f9}
+.menu-icon svg,.menu-arrow{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.menu-arrow{color:var(--muted);flex:0 0 18px}
+.profile-menu-item:focus-visible,.profile-stats button:focus-visible,.profile-edit:focus-visible{outline:2px solid var(--ink);outline-offset:-3px}
+.profile-menu-item:active,.profile-stats button:active{background:var(--weak)}
+.toast{position:absolute;z-index:10;left:50%;bottom:98px;max-width:calc(100% - 48px);margin:0;padding:10px 14px;border-radius:999px;background:rgba(41,40,36,.9);color:#fffdf8;font-size:12px;line-height:1.3;white-space:nowrap;opacity:0;pointer-events:none;transform:translate(-50%,8px);transition:opacity .2s ease,transform .2s ease}
+.toast.is-visible{opacity:1;transform:translate(-50%,0)}
+@media(max-width:390px){
+  .profile-card{padding:16px}
+  .profile-highlight{padding:16px}
+  .profile-highlight h3{font-size:22px}
+  .highlight-orbit{width:90px;height:90px;flex-basis:90px}
+  .highlight-orbit img:first-child{width:72px;height:72px}
+}
