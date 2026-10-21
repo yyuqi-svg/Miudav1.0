@@ -39,13 +39,13 @@ document.querySelectorAll('[data-profile-action]').forEach((control) => {
   control.addEventListener('click', () => showToast(`${control.dataset.profileAction}功能将在后续版本开放`));
 });
 
-const favoriteKey = 'miuda-wardrobe-favorites-v1';
 let favorites = [];
+let favoriteStore;
 try {
-  const saved = JSON.parse(localStorage.getItem(favoriteKey) || '[]');
-  if (Array.isArray(saved)) favorites = saved.filter((item) => typeof item === 'string');
+  favoriteStore = MiudaStorage.createBrowserWardrobeStore();
+  favorites = favoriteStore.getFavoriteIds();
 } catch (_) {
-  // The demo still works in memory if browser storage is unavailable.
+  favoriteStore = null;
 }
 
 document.querySelectorAll('[data-favorite]').forEach((button) => {
@@ -60,9 +60,10 @@ document.querySelectorAll('[data-favorite]').forEach((button) => {
     favorites = favorites.includes(id) ? favorites.filter((item) => item !== id) : [...favorites, id];
     update();
     try {
-      localStorage.setItem(favoriteKey, JSON.stringify(favorites));
+      if (!favoriteStore) throw new Error('收藏存储不可用');
+      favorites = favoriteStore.setFavorite(id, favorites.includes(id));
     } catch (_) {
-      // Keep the current session usable even when storage is blocked.
+      showToast('收藏仅在本次浏览中有效，请检查浏览器存储');
     }
   });
 });

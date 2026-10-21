@@ -43,7 +43,17 @@ Miuda/
     └── design-concepts/       # 已生成的视觉参考稿
 ```
 
-> `src/` 为下一功能切片开始时的拆分目标。当前静态原型暂保留在根目录，避免在尚未加入数据行为前进行无关重构。
+> `src/` 已包含 MDR-20 的数据层和 Mock AI 服务；页面拆分仍是后续任务。当前静态原型暂保留在根目录。
+
+### 当前本地衣物数据接口（MDR-20）
+
+- `MiudaSeed.getSeedClothing()` 返回独立的样例衣物数据副本，ID 与现有静态衣物卡片一致。
+- `MiudaStorage.createWardrobeStore(storage, getSeedClothing)` 创建存储接口：`getItems()`、`saveItems(items)`、`addItem(item)`、`updateItem(id, changes)`、`deleteItem(id)`；浏览器页面可使用 `createBrowserWardrobeStore()`。
+- 数据存于 `miuda-wardrobe-items-v1`。仅当存储键不存在时写入样例；已保存的空数组保持为空。异常数据或存储故障会报错，不会自动覆盖原数据。
+- `getFavoriteIds()` 和 `setFavorite(id, selected)` 管理收藏；沿用原 `miuda-wardrobe-favorites-v1` 键以保留已有记录，通过衣物 ID 关联。存储不可用时现有界面只保留本次会话状态并提示用户。
+- 数据层已加载到静态页面，但首页和衣橱尚未接入读取；接入录入和动态渲染分别属于后续任务。
+- `MiudaAI.analyzeClothing(image)` 返回固定示例标签；`generateOutfit(input, items)` 从传入衣橱选择上衣、下装和鞋履，缺少时抛错；`generateTryOn({ itemIds, personImageUrl? })` 返回固定试衣示例图。三者均返回 Promise，不请求外部服务；试衣图不是按所选衣物动态生成的。
+- 本地验证：`node --test tests/data-foundation.test.js`。
 
 ## 3. 核心数据模型
 
